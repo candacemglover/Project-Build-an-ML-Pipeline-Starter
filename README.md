@@ -4,7 +4,7 @@ GitHub Repository:
 https://github.com/candacemglover/Project-Build-an-ML-Pipeline-Starter
 
 Weights & Biases Project:
-https://wandb.ai/candacemglover/nyc_airbnb
+https://wandb.ai/gcandac-western-governors-university/nyc_airbnb?nw=nwusergcandac
 
 These links include everything needed to see my project: code, releases, config, pipeline steps, and the final model. Reviewers can follow along with the ML pipeline from raw data to the trained model.
 
