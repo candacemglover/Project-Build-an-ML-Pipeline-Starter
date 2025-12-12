@@ -34,7 +34,8 @@ def go(args):
     # Only implement this step when reaching Step 6: Pipeline Release and Updates
     # in the project.
     # Add longitude and latitude filter to allow test_proper_boundaries to pass
-    # ENTER CODE HERE
+    idx = df['longitude'].between(-74.25, -73.50) & df['latitude'].between(40.5, 41.2)
+    df = df[idx].copy()
 
     # Save the cleaned data
     df.to_csv('clean_sample.csv',index=False)
@@ -56,48 +57,48 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="A very basic data cleaning")
   
     parser.add_argument(
-        "--input_artifact", 
-        type = ## INSERT TYPE HERE: str, float or int,
-        help = ## INSERT DESCRIPTION HERE,
-        required = True
+        "--input_artifact",
+        type=str,
+        help="Name of the input artifact (raw dataset) from W&B",
+        required=True
     )
 
     parser.add_argument(
-        "--output_artifact", 
-        type = ## INSERT TYPE HERE: str, float or int,
-        help = ## INSERT DESCRIPTION HERE,
-        required = True
+        "--output_artifact",
+        type=str,
+        help="Name of the output artifact (cleaned dataset) to create in W&B",
+        required=True
     )
 
     parser.add_argument(
-        "--output_type", 
-        type = ## INSERT TYPE HERE: str, float or int,
-        help = ## INSERT DESCRIPTION HERE,
-        required = True
+        "--output_type",
+        type=str,
+        help="Type of the output artifact (e.g., dataset)",
+        required=True
     )
 
     parser.add_argument(
-        "--output_description", 
-        type = ## INSERT TYPE HERE: str, float or int,
-        help = ## INSERT DESCRIPTION HERE,
-        required = True
+        "--output_description",
+        type=str,
+        help="Description of the output artifact",
+        required=True
     )
 
     parser.add_argument(
-        "--min_price", 
-        type = ## INSERT TYPE HERE: str, float or int,
-        help = ## INSERT DESCRIPTION HERE,
-        required = True
+        "--min_price",
+        type=float,
+        help="Minimum Airbnb price filter",
+        required=True
     )
 
     parser.add_argument(
         "--max_price",
-        type = ## INSERT TYPE HERE: str, float or int,
-        help = ## INSERT DESCRIPTION HERE,
-        required = True
+        type=float,
+        help="Maximum Airbnb price filter",
+        required=True
     )
 
-
+    
     args = parser.parse_args()
 
     go(args)
